@@ -51,6 +51,10 @@
   header: none,
   footer: none,
   {
+    let anonymous-hide(body) = {
+      return if anonymous {"　"} else {body}
+    }
+    
     set align(center)
     set par(first-line-indent: 0pt)
     image("../assets/vi/seu.png", width: 180pt)
@@ -72,13 +76,13 @@
       chineseunderline(major.main),
       text(font: 字体.黑体, "研究生姓名"),
       "：",
-      chineseunderline(author.CN),
+      chineseunderline(anonymous-hide(author.CN)),
       text(font: 字体.黑体, "导师姓名".clusters().join(h(1em / 3))),
       "：",
-      chineseunderline(advisors.map(it => it.CN + " " + it.CN-title).join("\n")),
+      chineseunderline(advisors.map(it => anonymous-hide(it.CN + " " + it.CN-title)).join("\n")),
     )
 
-    if thanks != none {
+    if thanks != none and anonymous == false {
       place(bottom + left, text(font: 字体.宋体, size: 字号.小四, thanks))
     }
   },

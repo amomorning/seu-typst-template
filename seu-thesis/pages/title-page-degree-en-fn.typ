@@ -45,6 +45,10 @@
   header: none,
   footer: none,
   {
+    let anonymous-hide(body) = {
+        return if anonymous {hide(body)} else {body}
+    }
+    
     set par(first-line-indent: 0pt)
     set align(center)
 
@@ -63,9 +67,9 @@
         rows: (auto, 1fr, auto, 1fr, auto, 1fr, auto),
         thesis-name.EN,
         [],
-        "BY" + "\n" + author.EN,
+        "BY" + "\n" + anonymous-hide(author.EN),
         [],
-        "Supervised by" + "\n" + advisors.map(it => it.EN-title + " " + it.EN).join("\n and \n"),
+        "Supervised by" + "\n" + advisors.map(it => anonymous-hide(it.EN-title + " " + it.EN)).join("\n and \n"),
         [],
         school.EN + "\n" + "Southeast University" + "\n" + date.EN.finish-date,
       ),

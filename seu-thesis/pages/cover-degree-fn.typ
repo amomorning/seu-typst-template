@@ -32,6 +32,7 @@
   major: (
     main: "摸鱼科学",
     submajor: "计算机摸鱼",
+    direction: "摸鱼模板研究",
   ),
   degree: "摸鱼学硕士",
   category-number: "N94",
@@ -61,6 +62,10 @@
   header: none,
   footer: none,
   {
+    let anonymous-hide(body) = {
+      return if anonymous {"　"} else {body}
+    }
+    
     set text(font: 字体.宋体, size: 字号.小四, weight: "regular", lang: "zh")
     set align(center + top)
     set par(first-line-indent: 0pt)
@@ -103,7 +108,7 @@
           chineseunderline(UDC),
           justify-4em("学号"),
           "：",
-          chineseunderline(author.ID),
+          chineseunderline(anonymous-hide(author.ID)),
         )
       },
     )
@@ -155,12 +160,12 @@
 
           text(font: 字体.宋体)[研究生姓名],
           [：],
-          {chineseunderline(author.CN)},
+          {chineseunderline(anonymous-hide(author.CN))},
 
           text(font: 字体.宋体, justify-words("导师姓名", width: 5em)),
           [：],
           chineseunderline(
-            advisors.map(it => it.CN + " " + it.CN-title).join("\n")
+            advisors.map(it => anonymous-hide(it.CN + " " + it.CN-title)).join("\n")
           )
         )
       },
@@ -184,6 +189,8 @@
             chineseunderline(major.main),
             text(font: 字体.宋体, justify-7em("二级学科名称")),
             chineseunderline(major.submajor),
+            text(font: 字体.宋体, justify-7em("研究方向")),
+            chineseunderline(major.direction),
             text(font: 字体.宋体, "答辩委员会主席"),
             chineseunderline(committee-chair),
           ),
@@ -241,6 +248,7 @@
   major: (
     main: "摸鱼科学",
     submajor: "计算机摸鱼",
+    direction: "摸鱼模板研究",
   ),
   degree: "摸鱼学硕士",
   category-number: "N94",

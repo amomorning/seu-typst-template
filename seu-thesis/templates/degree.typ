@@ -46,6 +46,7 @@
   major: (
     main: "摸鱼科学",
     submajor: "计算机摸鱼",
+    direction: "摸鱼模板研究",
   ),
   degree: "摸鱼学硕士",
   category-number: "N94",
@@ -122,7 +123,7 @@
     major: major,
     date: date,
     thanks: thanks,
-    anonymous: false,
+    anonymous: anonymous,
   )
 
   smart-pagebreak()
@@ -134,7 +135,7 @@
     advisors: advisors,
     school: school,
     date: date,
-    anonymous: false,
+    anonymous: anonymous,
   )
 
   smart-pagebreak()
@@ -158,10 +159,11 @@
   if not terminology in (none, [], [ ], "") {
     smart-pagebreak()
     terminology-conf(terminology)
+    smart-pagebreak(skip-with-page-blank: true)
+  } else {
+    smart-pagebreak()
   }
-
-  smart-pagebreak(skip-with-page-blank: true)
-
+  
   show: main-body-bachelor-conf.with(
     thesis-name: thesis-name,
     first-level-title-page-disable-heading: first-level-title-page-disable-heading,
@@ -201,6 +203,7 @@
   major: (
     main: "摸鱼科学",
     submajor: "计算机摸鱼",
+    direction: "摸鱼模板研究",
   ),
   degree: "摸鱼学硕士",
   category-number: "N94",
