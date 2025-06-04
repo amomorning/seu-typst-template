@@ -44,6 +44,15 @@
 
 如您使用 VSCode 作为编辑器，可以尝试使用 [Tinymist](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp) 与 [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview) 插件。如有本地包云同步需求，可以使用 [Typst Sync](https://marketplace.visualstudio.com/items?itemName=OrangeX4.vscode-typst-sync) 插件。更多编辑技巧，可查阅 <https://github.com/nju-lug/modern-nju-thesis#vs-code-%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E6%8E%A8%E8%8D%90> 。
 
+``` bash
+# 本地 utpm 连接
+git clone git@github.com:amomorning/seu-typst-template.git
+utpm ws link --force
+
+# 导入到论文中使用：
+#import "@local/cheda-seu-thesis:0.3.4": degree-conf, degree-utils
+```
+
 ### Web App
 
 > [!NOTE]
